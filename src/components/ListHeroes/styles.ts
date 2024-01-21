@@ -20,8 +20,10 @@ export const ContainerListHeroes = styled.div`
 export const ContainerCard = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: start;
   width: 100%;
+  flex-wrap: wrap;
+  gap: 4.3rem;
 `
 
 export const ContainerHeaderListHeroes = styled.div`
@@ -37,6 +39,7 @@ export const SpanOrdernedHeroes = styled.span`
   align-items: center;
   width: 100%;
   gap: 0.70rem;
+  margin: 1rem auto;
 `
 
 export const ToggleWrapper = styled.div`
@@ -48,7 +51,7 @@ export const ToggleWrapper = styled.div`
 export const StyledToggleButton = styled.button<ToogleProps>`
   display: flex;
   position: relative;
-  width: 3.5rem;
+  width: 4.4rem;
   height: 1.95rem;
   margin: auto 1.3rem;
 
@@ -89,8 +92,9 @@ export const FavoriteWrapper = styled.div`
 export const ContainerOrderAndFavorite = styled.div`
   display: flex;
   align-items: center;
+  width: 33rem;
 `
-export const SpanOnlyFavorites = styled.button`
+export const ButtonOnlyFavorites = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;

@@ -13,6 +13,7 @@ export const Search = styled.input.attrs({
 })`
 	height: 100%;
 	width: 40rem;
+	min-width: 20rem;
 
 	border: none;
 	border-bottom-right-radius: 30px;

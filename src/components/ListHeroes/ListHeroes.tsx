@@ -1,13 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from './styles'
 import { Card } from "../Card/Card";
+import { Hero } from "../../data/heroes";
 
-export const ListHeroes: React.FC = () => {
+
+interface ListHeroProps  {
+  heroes: Hero[]
+  onlyFavorites: () => void
+}
+
+export const ListHeroes: React.FC<ListHeroProps> = ({ heroes, onlyFavorites }) => {
   const [isOn, setIsOn] = useState(false);
 
   const toggleSwitch = () => {
     setIsOn((prevIsOn) => !prevIsOn);
   };
+  
+
   return (
     <S.ContainerListHeroes>
       <S.ContainerHeaderListHeroes>
@@ -26,19 +35,20 @@ export const ListHeroes: React.FC = () => {
           </S.ToggleWrapper>
 
           <S.FavoriteWrapper>
-            <S.SpanOnlyFavorites>
+            <S.ButtonOnlyFavorites onClick={onlyFavorites}>
               <S.FavoriteIcon src={process.env.PUBLIC_URL + "/assets/icones/heart/Path@1,5x.png"}/>
               Somente favoritos
-            </S.SpanOnlyFavorites>
+            </S.ButtonOnlyFavorites>
           </S.FavoriteWrapper>
 
         </S.ContainerOrderAndFavorite>
       </S.ContainerHeaderListHeroes>
       <S.ContainerCard>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {
+          heroes.map((hero) => (
+            <Card hero={hero} key={hero.id}/>
+          ))
+        }
       </S.ContainerCard>
     </S.ContainerListHeroes>
   )
