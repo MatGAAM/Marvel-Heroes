@@ -11,9 +11,28 @@ interface ListHeroProps  {
 
 export const ListHeroes: React.FC<ListHeroProps> = ({ heroes, onlyFavorites }) => {
   const [isOn, setIsOn] = useState(false);
-
+  
   const toggleSwitch = () => {
     setIsOn((prevIsOn) => !prevIsOn);
+  };
+
+  const [isAscending, setIsAscending] = useState(true);
+  const [sortedHeroes, setSortedHeroes] = useState([...heroes]);
+  const copyOfHeroes = [...heroes];
+  useEffect(() => {
+    const sorted = copyOfHeroes.sort((a, b) => {
+      const nameA = a.name.toLowerCase();
+      const nameB = b.name.toLowerCase();
+  
+      return isAscending ? nameA.localeCompare(nameB) : nameB.localeCompare(nameA);
+    });
+  
+    setSortedHeroes(sorted);
+  }, [heroes, isAscending]);
+
+  const toggleSortOrder = () => {
+    setIsAscending((prevIsAscending) => !prevIsAscending);
+    toggleSwitch()
   };
   
 
@@ -29,8 +48,8 @@ export const ListHeroes: React.FC<ListHeroProps> = ({ heroes, onlyFavorites }) =
               Ordenar por nome - A/Z
             </S.SpanOrdernedHeroes>
 
-            <S.StyledToggleButton active={isOn} onClick={toggleSwitch}>
-            <S.Circle active={isOn} />
+            <S.StyledToggleButton active={!isAscending} onClick={toggleSortOrder}>
+            <S.Circle active={!isAscending} />
             </S.StyledToggleButton>
           </S.ToggleWrapper>
 
@@ -45,7 +64,7 @@ export const ListHeroes: React.FC<ListHeroProps> = ({ heroes, onlyFavorites }) =
       </S.ContainerHeaderListHeroes>
       <S.ContainerCard>
         {
-          heroes.map((hero) => (
+          sortedHeroes.map((hero) => (
             <Card hero={hero} key={hero.id}/>
           ))
         }

@@ -19,10 +19,14 @@ export const favoriteHeroesSlice = createSlice({
         ...state.favoriteHero,
         action.payload
       ]
+      console.log('add action.payload', action.payload)
+      console.log('add state', state.favoriteHero)
     },
     removeHero: (state, action) => {
       const heroToRemove = action.payload
       const favoriteHeroFiltered = state.favoriteHero.filter((product) => product.id !== heroToRemove.id)
+      console.log('remove action.payload', action.payload)
+      console.log('remove state', state.favoriteHero)
 
       state.favoriteHero = favoriteHeroFiltered
     }

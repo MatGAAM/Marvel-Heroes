@@ -1,9 +1,10 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { removeHero, addHeroFavorite } from '../../redux/FavoriteHeroes/favorite-heroes-slice'
 import { Hero } from '../../data/heroes';
 import * as S from './styles'
 
 import React, { useState } from "react";
+import { RootReducer } from '../../redux/root-reducer';
 
 interface HeroCardProps {
   hero: Hero
@@ -11,20 +12,20 @@ interface HeroCardProps {
 
 export const Card: React.FC<HeroCardProps> = ({ hero }) => {
 
-  const [heartIcon, setHeartIcon] = useState('Path Copy 2@2x.png')
+  const { favoriteHero } = useSelector((rootReducer: RootReducer) => rootReducer.favoriteHeroesReducer)
+  const isFavorite = favoriteHero.some((characterChoice) => { return characterChoice.id === hero.id } )
+  console.log(isFavorite)
+  const [heartIcon, setHeartIcon] = useState(isFavorite ? 'Path Copy 7@2x.png' : 'Path Copy 2@2x.png')
 
   const dispatch = useDispatch()
-
-  function favoriteHero() {
-    console.log('clicou', heartIcon)
-    if(heartIcon === 'Path Copy 2@2x.png') {
-      setHeartIcon('Path Copy 7@2x.png') 
-      dispatch(addHeroFavorite(hero))
-    } else {
-      dispatch(removeHero(hero))
+  function choiceFavoriteHero() {
+    if(isFavorite) {
       setHeartIcon('Path Copy 2@2x.png')
-    } 
-    console.log('saiu', heartIcon)
+      dispatch(removeHero(hero))
+    } else {
+      setHeartIcon('Path Copy 7@2x.png')
+      dispatch(addHeroFavorite(hero))
+    }
   }
   return (
     <S.ContainerCard>
@@ -33,7 +34,7 @@ export const Card: React.FC<HeroCardProps> = ({ hero }) => {
       </S.HeroImageContainer>
       <S.WrapperCard>
         <S.NameHero>{hero.name}</S.NameHero>
-        <S.FavoriteHeroButton onClick={favoriteHero}>
+        <S.FavoriteHeroButton onClick={choiceFavoriteHero}>
           <S.FavoriteHeroIcon src={process.env.PUBLIC_URL + `/assets/icones/heart/${heartIcon}`}/>
         </S.FavoriteHeroButton>
       </S.WrapperCard>

@@ -2,6 +2,7 @@ export interface Hero {
     id: number,
     name: string,
     description?: string,
+    favorite?:boolean,
     series?: {
         avaliable: number,
         colletionURI: string,
