@@ -4,11 +4,12 @@ import { ListHeroes } from '../ListHeroes/ListHeroes';
 
 import { Hero } from "../../data/heroes";
 import { useEffect, useState } from 'react';
-import { permissionsURL } from '../../Utils/apiUtils';
+import { getByName, permissionsURL } from '../../Utils/apiUtils';
 import axios from 'axios';
 
 import { useSelector } from "react-redux";
 import { RootReducer } from "../../redux/root-reducer";
+
 
 
 export const BodyPage: React.FC = () => {
@@ -36,8 +37,10 @@ export const BodyPage: React.FC = () => {
     if (!searchNameHero) {
       getHeroes()
     } else {
-      const responseHero = await axios.get(`http://gateway.marvel.com/v1/public/characters?name=${searchNameHero}&&orderBy=modified&&${permissions}`)
-      setHeroData(responseHero.data.data.results)
+      console.log('oxi', searchNameHero)
+      const heroesDataByName = await getByName(searchNameHero)
+      console.log('oxi2', heroesDataByName)
+      setHeroData(heroesDataByName)
     }
   }
 

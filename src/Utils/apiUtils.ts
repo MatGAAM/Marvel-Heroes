@@ -1,4 +1,7 @@
+import axios from 'axios';
 import md5 from 'md5';
+import { Hero } from '../data/heroes';
+
 
 export const permissionsURL = () => {
     const publicKey = 'e92bc6259a67fc01077703541f43d4d8';
@@ -16,3 +19,13 @@ export const permissionsURL = () => {
 
     return `ts=${timestamp}&apikey=${publicKey}&hash=${hash}`
 }
+
+
+
+export const getByName = async ( searchNameHero: string ) => {
+    const permissions = permissionsURL()
+    const responseHero = await axios.get(`http://gateway.marvel.com/v1/public/characters?name=${searchNameHero}&${permissions}`)
+    return responseHero.data.data.results
+}
+
+     
