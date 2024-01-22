@@ -40,3 +40,8 @@ export interface Hero {
         ]
     },
 }
+
+export interface ComicBookCover {
+    path: string
+    extension: string
+}

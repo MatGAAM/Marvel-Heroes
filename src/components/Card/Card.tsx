@@ -14,7 +14,6 @@ export const Card: React.FC<HeroCardProps> = ({ hero }) => {
 
   const { favoriteHero } = useSelector((rootReducer: RootReducer) => rootReducer.favoriteHeroesReducer)
   const isFavorite = favoriteHero.some((characterChoice) => { return characterChoice.id === hero.id } )
-  console.log(isFavorite)
   const [heartIcon, setHeartIcon] = useState(isFavorite ? 'Path Copy 7@2x.png' : 'Path Copy 2@2x.png')
 
   const dispatch = useDispatch()

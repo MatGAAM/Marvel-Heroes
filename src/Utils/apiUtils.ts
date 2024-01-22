@@ -14,8 +14,6 @@ export const permissionsURL = () => {
     const timestamp = new Date().getTime().toString();
     const hash = generateHash(timestamp);
     
-    console.log('Timestamp:', timestamp);
-    console.log('Hash:', hash);
 
     return `ts=${timestamp}&apikey=${publicKey}&hash=${hash}`
 }
@@ -28,4 +26,10 @@ export const getByName = async ( searchNameHero: string ) => {
     return responseHero.data.data.results
 }
 
+
+export const getComics = async (URIComic: string) => {
+  const permissions = permissionsURL()
+  const listComics = await axios.get(`${URIComic}?${permissions}`)
+  return listComics.data.data.results[0]
+}
      

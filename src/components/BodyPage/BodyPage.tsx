@@ -37,9 +37,7 @@ export const BodyPage: React.FC = () => {
     if (!searchNameHero) {
       getHeroes()
     } else {
-      console.log('oxi', searchNameHero)
       const heroesDataByName = await getByName(searchNameHero)
-      console.log('oxi2', heroesDataByName)
       setHeroData(heroesDataByName)
     }
   }

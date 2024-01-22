@@ -23,7 +23,8 @@ export const SearchContainer = styled.div`
 export const BodyContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  flex-direction: column;
   width: 90%;
 `
 
@@ -39,10 +40,11 @@ export const WrapperInformations = styled.div`
   flex-direction: column;
   align-items: start;
   justify-content: center;
-  width: 500px;
+  width: 430px;
 `
 export const NameHero = styled.h1`
   color: #404040;
+  margin-bottom: 2rem;
 `
 export const DescriptionHero = styled.h2`
   color: #8c8c8c;
@@ -100,7 +102,16 @@ export const TitleComics = styled.h3`
 `
 export const NumberComics = styled.h3``
 
-export const WrapperRating = styled.div``
+export const WrapperRating = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.6rem 0 ;
+
+`
+export const RatingText = styled.h3`
+  font-size: 0.85rem;
+`
 
 export const WrapperLastSale = styled.div``
 
@@ -114,10 +125,27 @@ export const ImageDiv = styled.div`
   margin-right: 8%;
   `
 export const ImageHero = styled.img`
-  width: 100%;
-  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
   border-radius: 350px;
   object-fit: contain;
 `
 
+export const ComicsListContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 3rem;
+
+  margin-top: 15rem;
+  margin-bottom: 25rem;
+`
+export const WrapperBodySection = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+`
 
