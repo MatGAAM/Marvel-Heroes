@@ -21,7 +21,7 @@ export const permissionsURL = () => {
 
 export const getByName = async ( searchNameHero: string ) => {
     const permissions = permissionsURL()
-    const responseHero = await axios.get(`http://gateway.marvel.com/v1/public/characters?name=${searchNameHero}&${permissions}`)
+    const responseHero = await axios.get(`https://gateway.marvel.com/v1/public/characters?name=${searchNameHero}&${permissions}`)
     return responseHero.data.data.results
 }
 
