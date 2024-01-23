@@ -1,4 +1,13 @@
 import styled from "styled-components";
+import { Link } from 'react-router-dom'
+
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+`
+
 
 export const MainContainer = styled.div`
   display: flex;
@@ -6,17 +15,22 @@ export const MainContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   width: 100%;
+  background-color: #e7f6e7;
 `
 
 
 export const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
   width: 100%;
 `
 export const SearchContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 `
 
 
@@ -27,12 +41,19 @@ export const BodyContainer = styled.div`
   flex-direction: column;
   width: 90%;
 `
-
+export const ContainerLogo = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  left: -5%;
+  transform: translateX(5%);
+` 
 export const LogoMarvel = styled.img`
-  margin-left: 10%;
-  margin-right: 90%;
   width: 14rem;
-  height: 6rem;
+  height: 5rem;
+  position: relative;
+
 `
 
 export const WrapperInformations = styled.div`
@@ -42,9 +63,36 @@ export const WrapperInformations = styled.div`
   justify-content: center;
   width: 430px;
 `
+
+export const WrapperHeaderInformations = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 2rem;
+`
+export const NameContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+export const ButtonFavoriteContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 2rem;
+  height: 2rem;
+  &:hover {
+    img {
+      transform: scale(1.5);
+    }
+  }
+`
+
 export const NameHero = styled.h1`
   color: #404040;
-  margin-bottom: 2rem;
 `
 export const DescriptionHero = styled.h2`
   color: #8c8c8c;
@@ -107,14 +155,19 @@ export const WrapperRating = styled.div`
   align-items: center;
   justify-content: center;
   margin: 1.6rem 0 ;
-
 `
+
+export const WrapperOnSaleDate = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.6rem 0 ;
+  gap: 1rem;
+`
+
 export const RatingText = styled.h3`
   font-size: 0.85rem;
 `
-
-export const WrapperLastSale = styled.div``
-
 
 export const ImageDiv = styled.div`
   width: 35rem;
@@ -132,6 +185,17 @@ export const ImageHero = styled.img`
 `
 
 export const ComicsListContainer = styled.div`
+  margin-top: 15rem;
+  margin-bottom: 25rem;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+`
+
+export const WrapperComicsList = styled.div`
   display: flex;
   align-items: center;
   justify-content: start;
@@ -139,9 +203,16 @@ export const ComicsListContainer = styled.div`
   flex-wrap: wrap;
   gap: 3rem;
 
-  margin-top: 15rem;
-  margin-bottom: 25rem;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
 `
+export const WrapperTitleComicsList = styled.div`
+  width: 100%;
+`
+export const TitleComicsList = styled.h3`
+
+`
+
 export const WrapperBodySection = styled.div`
   display: flex;
   justify-content: space-between;

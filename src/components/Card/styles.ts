@@ -17,6 +17,11 @@ export const ContainerCard = styled.div`
   background-color: #ff1510;
 
   object-fit: contain;
+  &:hover {
+    img {
+      transform: scale(1.05);
+    }
+  }
 
 `
 export const WrapperCard = styled.div`
@@ -36,7 +41,21 @@ export const HeroImage = styled.img`
   width: 16rem;
   height: 16.5rem;
   object-fit: cover;
+  transition: transform 0.4s;
+`
 
+export const ButtonFavoriteStyled = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 1rem;
+  height: 1rem;
+  &:hover {
+    img {
+      transform: scale(1.5);
+    }
+  }
 `
 export const HeroImageContainer = styled.div`
   display: flex;

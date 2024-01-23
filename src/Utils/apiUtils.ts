@@ -1,5 +1,5 @@
 import axios from 'axios';
-import md5 from 'md5';
+import md5 from 'md5'
 import { Hero } from '../data/heroes';
 
 
@@ -29,7 +29,7 @@ export const getByName = async ( searchNameHero: string ) => {
 
 export const getComics = async (URIComic: string) => {
   const permissions = permissionsURL()
-  const listComics = await axios.get(`${URIComic}?${permissions}`)
+  const listComics = await axios.get(`${URIComic}?orderBy=-onsaleDate&${permissions}`)
   return listComics.data.data.results[0]
 }
      

@@ -29,9 +29,9 @@ export interface Hero {
         path: string
     },
     comics?: {
-        avaliable: number,
+        available: number,
         colletionURI: string,
-        item: [
+        items: [
             {
                 name: string,
                 resourceURI: string,
@@ -39,9 +39,22 @@ export interface Hero {
             }
         ]
     },
+    events: {
+        available: number,
+        collectionURI: '',
+        items: [],
+        returned: number
+    }
 }
 
 export interface ComicBookCover {
+    id: number
     path: string
     extension: string
+}
+
+export interface FavoriteComic {
+    id: number
+    name: string
+    resourceURI: string
 }

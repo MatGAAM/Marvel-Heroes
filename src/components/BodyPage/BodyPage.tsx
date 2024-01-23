@@ -54,7 +54,6 @@ export const BodyPage: React.FC = () => {
       <S.ContainerListHeroes>
         <ListHeroes heroes={heroData} onlyFavorites={onlyFavorites}/>
       </S.ContainerListHeroes>
-      <S.FooterPage />
     </S.ContainerBody>
   )
 }
