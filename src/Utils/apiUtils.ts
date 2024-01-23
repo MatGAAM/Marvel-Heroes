@@ -3,8 +3,8 @@ import md5 from 'md5'
 
 
 export const permissionsURL = () => {
-    const publicKey = process.env.PUBLIC_KEY;
-    const privateKey = process.env.PUBLIC_KEY;
+    const publicKey = process.env.REACT_APP_PUBLIC_KEY;
+    const privateKey = process.env.REACT_APP_PRIVATE_KEY;
     
     const generateHash = (ts: string): string => {
       const inputString = ts + privateKey +   publicKey;
