@@ -2,6 +2,10 @@
 
 Este projeto tem como objetivo consumir a [API da Marvel](https://developer.marvel.com/docs) para exibir informações sobre os heróis.
 
+## Quer testar a aplicação?
+-[Marvel-heroes](https://marvel-heroes-kappa.vercel.app/)
+
+
 ## Sobre o Projeto
 
 O Marvel Heroes é uma aplicação web que utiliza a API da Marvel para fornecer informações detalhadas sobre heróis do universo Marvel. A aplicação oferece as seguintes funcionalidades:
@@ -45,3 +49,4 @@ cd marvel-heroes
 
 # Instale as dependências
 yarn install
+
