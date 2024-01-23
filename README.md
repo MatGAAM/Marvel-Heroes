@@ -3,7 +3,7 @@
 Este projeto tem como objetivo consumir a [API da Marvel](https://developer.marvel.com/docs) para exibir informações sobre os heróis.
 
 ## Quer testar a aplicação?
--[Marvel-heroes](https://marvel-heroes-kappa.vercel.app/)
+Acesse [Marvel-heroes](https://marvel-heroes-kappa.vercel.app/) e teste agora mesmo
 
 
 ## Sobre o Projeto
