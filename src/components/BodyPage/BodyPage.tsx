@@ -23,7 +23,7 @@ export const BodyPage: React.FC = () => {
   }, [])
   async function getHeroes() {
     try {
-      const response = await axios.get(`http://gateway.marvel.com/v1/public/characters?${permissions}`)
+      const response = await axios.get(`https://gateway.marvel.com/v1/public/characters?${permissions}`)
 
       const heroesData = response.data.data.results
 

@@ -27,8 +27,9 @@ export const getByName = async ( searchNameHero: string ) => {
 
 
 export const getComics = async (URIComic: string) => {
+  const replaceURI = URIComic.replace('http', 'https')
   const permissions = permissionsURL()
-  const listComics = await axios.get(`${URIComic}?orderBy=-onsaleDate&${permissions}`)
+  const listComics = await axios.get(`${replaceURI}?orderBy=-onsaleDate&${permissions}`)
   return listComics.data.data.results[0]
 }
      
